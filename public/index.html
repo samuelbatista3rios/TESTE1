@@ -13,11 +13,11 @@
         <h3>Upload de Notas:</h3>
         <input type="file" name="notasFile" multiple accept=".txt"><br><br>
         <button type="submit">Enviar</button>
-        <button type="button" onclick="verificarPedidos()">Verificar Pedidos</button>
+        
     </form>
 
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
+              document.addEventListener('DOMContentLoaded', function() {
             document.getElementById('uploadForm').addEventListener('submit', function(event) {
                 event.preventDefault();
                 
@@ -43,22 +43,7 @@
             });
         });
 
-        function verificarPedidos() {
-            fetch('/verificarPedidos')
-                .then(response => {
-                    if (!response.ok) {
-                        throw new Error('Erro ao verificar os pedidos.');
-                    }
-                    return response.json();
-                })
-                .then(data => {
-                    alert(data.message);
-                })
-                .catch(error => {
-                    console.error('Erro ao verificar os pedidos:', error);
-                    alert('Erro ao verificar os pedidos. Verifique o console para mais detalhes.');
-                });
-        }
+       
     </script>
 </body>
 </html>
